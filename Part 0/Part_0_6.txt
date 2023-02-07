@@ -1,0 +1,10 @@
+sequenceDiagram
+    participant browser
+    participant server
+    
+    Note right of browser: the browser executes the callback function that creates a new note,<br>adds it to the notes list, and rerenders the note list on the page
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa form content and date as JSON data
+    activate server
+    Note left of server: The server adds the new note to the JSON 
+    server-->>browser: status code 201: created 
+    deactivate server
